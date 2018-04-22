@@ -2,7 +2,7 @@ import FundTypeType from './fundtype/fundtype.type'
 import FundProductType from './fundproduct/fundproduct.type'
 
 import RootQuery from './rootquery/rootquery.type'
-//import RootMutation from './root-mutation/root-mutation.type.js'
+import RootMutation from './rootmutation/rootmutation.type.js'
 
 import resolvers from './resolvers'
 
@@ -21,18 +21,15 @@ import { makeExecutableSchema } from 'graphql-tools'
 const SchemaDefinition = `
   schema {
     query: RootQuery,
+    mutation: RootMutation
   }`
- // ,
- //   mutation: RootMutation
- // }
-//`
 
 const schema = makeExecutableSchema({
   // Add the type definitions to the schema
   typeDefs: [
     SchemaDefinition,
     RootQuery,
-    //RootMutation,
+    RootMutation,
     FundTypeType,
     FundProductType
   ],

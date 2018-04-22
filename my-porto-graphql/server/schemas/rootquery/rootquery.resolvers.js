@@ -7,7 +7,7 @@ const rootQueryResolvers = {
     // the second param is incoming parameters
     async fundType (rootObj, { id }) {
       // returns an object that matches the ItemType fields
-      return { id: 1, name: 'Money Market'}
+      return await fundTypesController.retrieve({id: id});
     },
     // this is the resolver for RootQuery.items
     async fundTypes () {

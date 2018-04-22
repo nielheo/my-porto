@@ -1,0 +1,18 @@
+{
+  "development": {
+    "username": "Chilindo",
+    "password": "Chilindo_123",
+    "database": "my-porto",
+    "host": "127.0.0.1",
+    "port": 5432,
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "Chilindo",
+    "password": "Chilindo_123",
+    "database": "my-porto",
+    "host": "127.0.0.1",
+    "port": 5432,
+    "dialect": "postgres"
+  }
+}

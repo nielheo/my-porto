@@ -1,7 +1,7 @@
 const queryEntryPoints = `
   type RootQuery {
     # get an item
-    fundType(id: String!): FundType,
+    fundType(id: Int!): FundType,
     # returns an array of items
     fundTypes: [FundType]
   }

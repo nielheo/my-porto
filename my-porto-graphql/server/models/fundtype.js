@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
   FundType.associate = (models) => {
-    Todo.hasMany(model.FundProduct, {
+    FundType.hasMany(models.FundProduct, {
       foreignKey: 'fundTypeId',
       as: 'fundProducts'
     })

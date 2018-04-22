@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   });
   Transaction.associate = function(models) {
-    Transation.belongsTo(models.FundProduct, {
+    Transaction.belongsTo(models.FundProduct, {
       foreignKey: 'fundProductId',
       onDelete: 'CASCADE',
     });

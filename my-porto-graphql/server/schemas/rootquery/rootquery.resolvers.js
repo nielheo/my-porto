@@ -1,3 +1,5 @@
+const fundTypesController = require('../../controllers').fundTypes;
+
 // must match the field items in RootQuery
 const rootQueryResolvers = {
     // this is the resolver for RootQuery.item
@@ -10,10 +12,8 @@ const rootQueryResolvers = {
     // this is the resolver for RootQuery.items
     async fundTypes () {
       // would return an array of Item
-      return [{id:1, name: 'Money Market'},
-        {id:2, name: 'Fixed Income'},
-        {id:3, name: 'Equity'},
-        {id:4, name: 'Mixed'}]
+      //return await [{ id: 1, name: 'Money Market'}]
+      return await fundTypesController.list()
     }
   }
   

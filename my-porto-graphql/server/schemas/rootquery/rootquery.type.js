@@ -3,7 +3,9 @@ const queryEntryPoints = `
     # get an item
     fundType(id: Int!): FundType,
     # returns an array of items
-    fundTypes: [FundType]
+    fundTypes: [FundType],
+    fundProduct(id: Int, code: String): FundProduct,
+    fundProducts: [FundProduct]
   }
 `
 export default queryEntryPoints

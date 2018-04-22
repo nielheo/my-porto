@@ -3,7 +3,12 @@ const RootMutation = `
     addFundType (
       id: Int!,
       name: String!
-    ): FundType
+    ): FundType,
+    addFundProduct (
+      code: String!,
+      name: String!,
+      fundTypeId: Int!
+    ): FundProduct,
   }
 `
 export default RootMutation

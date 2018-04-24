@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 const { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
 const { makeExecutableSchema } = require('graphql-tools');
 
+const cors = require('cors');
+
 // Some fake data
 /*
 const books = [
@@ -40,7 +42,17 @@ const typeDefs = `
 // Initialize the app
 const app = express();
 
+var corsOptions = {
+  origin: function(origin, callback){
+      //var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
+      callback(null, true);
+  },
+  credentials: true
+};
+app.use(cors(corsOptions));
+
 // The GraphQL endpoint
+//app.options('/graphql', cors())
 app.use('/graphql', bodyParser.json(), graphqlExpress({ schema: graphQLSchema }));
 
 // GraphiQL, a visual editor for queries

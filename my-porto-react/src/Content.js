@@ -1,38 +1,13 @@
 import React from "react";
 import { render } from "react-dom";
 
-import { ApolloProvider, Query } from "react-apollo";
+import { ApolloProvider } from "react-apollo";
 import ApolloClient from "apollo-boost";
-import gql from "graphql-tag";
+import { Switch, Route } from 'react-router-dom'
 
-const FundTypes = () => (
-  <Query
-    query={gql`
-        {
-            fundTypes {
-                id
-                name
-                fundProducts {
-                    id
-                    code
-                }
-            }
-        }
-    `}
-  >
-    {({ loading, error, data }) => {
-      if (loading) return <p>Loading...</p>;
-      if (error) return <p>Error :(</p>;
-
-      return data.fundTypes.map(({ id, name }) => (
-        <div key={id}>
-          <p>{`${id}: ${name}`}</p>
-        </div>
-      ));
-    }}
-  </Query>
-);
-
+import Home from './components/Home'
+import FundProducts from './components/FundProducts'
+import FundTypes from './components/FundTypes'
 
 const client = new ApolloClient({
   uri: "http://localhost:3000/graphql"
@@ -40,10 +15,11 @@ const client = new ApolloClient({
 
 const Content = () => (
   <ApolloProvider client={client}>
-    <div>
-      <h2>My first Apollo app 🚀</h2>
-    </div>
-    <FundTypes />
+    <Switch>
+      <Route exact path='/' component={Home}/>
+      <Route exact path='/fundtypes' component={FundTypes}/>
+      <Route exact path='/fundproducts' component={FundProducts}/>
+    </Switch>
   </ApolloProvider>
 );
 

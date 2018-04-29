@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
@@ -6,11 +6,11 @@ import Table, { TableBody, TableHead, TableRow } from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
 import Button from 'material-ui/Button';
 
-import { withRouter } from "react-router-dom"
+import { withRouter } from 'react-router-dom';
 
-import FundProductList from './FundProductList'
-import CustomTableCell from '../CustomTableCell'
-import AddFundProductRow from "./AddFundProductRow";
+import FundProductList from './FundProductList';
+import CustomTableCell from '../CustomTableCell';
+import AddFundProductRow from './AddFundProductRow';
 
 class FundProducts extends Component {
   constructor(props) {
@@ -64,7 +64,7 @@ class FundProducts extends Component {
               </TableRow>
             </TableHead>
             <TableBody>
-              { this.state.addingMode && <AddFundProductRow onCancelClicked={this._onCancelEditClicked}/> }
+              { this.state.addingMode && <AddFundProductRow fundProduct={null} onCancelEditClicked={this._onCancelEditClicked}/> }
               <FundProductList classes={classes} {...this.state} 
                 onEditClicked={this._onEditClicked} 
                 onCancelEditClicked={this._onCancelEditClicked}

@@ -9,6 +9,9 @@ const rootMutationResolvers = {
   },
   async addFundProduct(rootObj, { code, name, fundTypeId }) {
     return await fundProductsController.create({ code, name, fundTypeId })
+  },
+  async updateFundProduct(rootObj, { id, code, name, fundTypeId }) {
+    return await fundProductsController.update({ id, code, name, fundTypeId })
   }
 
 }

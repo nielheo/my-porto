@@ -8,6 +8,8 @@ import TextField from 'material-ui/TextField';
 import CustomTableCell from '../CustomTableCell';
 import FundTypeSelect from '../FundTypeSelect';
 
+import { withRouter } from 'react-router-dom';
+
 class EditFundProductRow extends Component {
   constructor(props){
     super(props)
@@ -32,10 +34,13 @@ class EditFundProductRow extends Component {
 
   _onSaveClicked = () => {
     const {code, name, fundTypeId} = this.state
-    this.props.mutate({variables: {code, name, fundTypeId}})
-      .then(() => {
-        this.props.router.replace('/')
-      })
+    const {fundProduct} = this.props
+    this.props.mutate({
+      variables: {id: fundProduct ? fundProduct.id : null, code, name, fundTypeId},
+      refetchQueries: [`fundProducts`]
+    }).then(() => {
+      this.props.onCancelEditClicked();
+    })
   }
 
   _onFundTypeChanged = (e) => {
@@ -108,4 +113,4 @@ const styles = theme => ({
   },
 });
 
-export default withStyles(styles)(EditFundProductRow);
+export default withRouter(withStyles(styles)(EditFundProductRow));

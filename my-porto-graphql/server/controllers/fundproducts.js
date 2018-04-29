@@ -14,7 +14,11 @@ module.exports = {
   list(req, res) {
     if (!req.fundTypeId) {
       return FundProduct
-        .all()
+        .all({
+          order: [
+            // Will escape title and validate DESC against a list of valid direction parameters
+            ['id']]
+        })
         .then(fundProducts => fundProducts)
         .catch(error => error)
     } else {
@@ -37,4 +41,14 @@ module.exports = {
       .then(fundProduct => fundProduct)
       .catch(error => error);
   },
+  update(req, res) {
+    return this.retrieve({id: req.id})
+      .then(fundProduct => fundProduct.update({
+          code: req.code, name: req.name, fundTypeId: req.fundTypeId
+        }).then(fundProduct => { 
+            return fundProduct; })
+          .catch(error => error)
+      )
+      .catch(error => error);
+  }
 }

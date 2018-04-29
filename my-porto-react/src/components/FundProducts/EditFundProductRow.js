@@ -1,8 +1,8 @@
 import { graphql } from 'react-apollo';
-import addFundProductMutation from '../../mutations/addFundProductMutation';
+import updateFundProductMutation from '../../mutations/updateFundProductMutation';
 
 import FundProductRowEditor from './FundProductRowEditor';
 
-const EditFundProductRow = graphql(addFundProductMutation)(FundProductRowEditor);
+const EditFundProductRow = graphql(updateFundProductMutation)(FundProductRowEditor);
 
 export default EditFundProductRow;

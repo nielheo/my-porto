@@ -14,6 +14,7 @@ class FundProductList extends Component {
         query={gql`
           {
             fundProducts {
+              id
               code
               name
               fundTypeId

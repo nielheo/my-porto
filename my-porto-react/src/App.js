@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import AppBar from './AppBar';
+import AppBar from './components/AppBar';
 import Content from './Content';
 
 class App extends Component {

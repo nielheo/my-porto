@@ -1,11 +1,12 @@
 const queryEntryPoints = `
   type RootQuery {
-    # get an item
+    # get Fund Type by id
     fundType(id: Int!): FundType,
-    # returns an array of items
+    # returns an array of Fund Type
     fundTypes: [FundType],
     fundProduct(id: Int, code: String): FundProduct,
     fundProducts: [FundProduct]
+    transactions: [Transaction]
   }
 `
 export default queryEntryPoints

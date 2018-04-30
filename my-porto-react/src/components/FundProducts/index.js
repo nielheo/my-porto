@@ -5,6 +5,7 @@ import { withStyles } from 'material-ui/styles';
 import Table, { TableBody, TableHead, TableRow } from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
 import Button from 'material-ui/Button';
+import Typography from 'material-ui/Typography';
 
 import { withRouter } from 'react-router-dom';
 
@@ -47,12 +48,22 @@ class FundProducts extends Component {
   
     return (
       <section>
-        <Button color="primary" className={classes.button} 
-          onClick={this._addProductClicked}
-          disabled={this.state.addingMode}
-          >
-          Add Product
-        </Button>
+        <div className={classes.titleRow}>
+          <div className={classes.title}>
+            <Typography variant="title" color="inherit" flex="1">
+                Fund Products
+            </Typography>
+          </div>
+          <div className={classes.titleButton}>
+            <Button color="primary" className={classes.button} 
+              onClick={this._addProductClicked}
+              disabled={this.state.addingMode}
+              variant="raised"
+              >
+              Add Product
+            </Button>
+          </div>
+        </div>
         <Paper className={classes.root}>
           <Table className={classes.table}>
             <TableHead>
@@ -90,6 +101,17 @@ const styles = theme => ({
   },
   table: {
     minWidth: 700,
+  },
+  titleRow: {
+    display: 'flex',
+  },
+  title: {
+    marginTop: '12px',
+    marginLeft: '12px',
+    flex: 1,
+  },
+  titleButton: {
+    justifyContent: 'flex-end',
   },
   button: {
     margin: theme.spacing.unit,

@@ -16,6 +16,12 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: 'CASCADE',
     });
   };
+  FundProduct.associate = (models) => {
+    FundProduct.hasMany(models.Transaction, {
+      foreignKey: 'fundProductId',
+      as: 'transactions'
+    })
+  };
   
   return FundProduct;
 };

@@ -4,18 +4,15 @@ const trancationType = `
   type Transaction {
     id: ID!,
     reffNumber: String!,
-    transactionDate: {
-      type: GraphQLDate,
-      
-    },
+    transactionDate: Date!,
     isSubscribe: Boolean!,
     transactionValue: Float!,
     transactionFee: Float!,
     nav: Float!,
     unit: Float!,
     fundProductId: Int!,
-    fundProducts: [FundProduct]
+    fundProduct: FundProduct
   }
 `
 
-export default trancationType
+export default trancationType 

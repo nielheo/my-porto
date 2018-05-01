@@ -1,5 +1,6 @@
 const fundTypesController = require('../../controllers').fundTypes;
 const fundProductsController = require('../../controllers').fundProducts;
+const transactionsController = require('../../controllers').transactions;
 
 // must match the field items in RootQuery
 const rootQueryResolvers = {
@@ -21,6 +22,9 @@ const rootQueryResolvers = {
     },
     async fundProducts() {
       return await fundProductsController.list({})
+    },
+    async transactions() {
+      return await transactionsController.list()
     }
   }
   

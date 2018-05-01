@@ -1,6 +1,7 @@
 import FundTypeType from './fundtype/fundtype.type'
 import FundProductType from './fundproduct/fundproduct.type'
 import TransactionType from './transaction/transaction.type'
+import DateType from './date/date.type'
 
 import RootQuery from './rootquery/rootquery.type'
 import RootMutation from './rootmutation/rootmutation.type.js'
@@ -33,7 +34,8 @@ const schema = makeExecutableSchema({
     RootMutation,
     FundTypeType,
     FundProductType,
-    TransactionType
+    TransactionType,
+    DateType
   ],
   // performs field lookups for a specific type
   resolvers

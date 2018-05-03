@@ -10,8 +10,7 @@ import CustomTableCell from '../CustomTableCell';
 class TransactionList extends Component {
   
   render() {
-      console.log(this.props)
-      const { loading, error, transactions } = this.props.data
+    const { loading, error, transactions } = this.props.data
     if (loading) return <TableRow>
                     <CustomTableCell>Loading</CustomTableCell>
                 </TableRow>;

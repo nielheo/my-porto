@@ -41,7 +41,6 @@ class ButtonAppBar extends Component {
   }
 
   handleClick = event => {
-    console.log(event)
     this.setState({ anchorEl: event.currentTarget });
   };
 

@@ -8,6 +8,8 @@ import Home from './components/Home'
 import FundProducts from './components/FundProducts'
 import FundTypes from './components/FundTypes'
 import Transactions from './components/Transactions'
+import TransactionsAdd from './components/Transactions/TransactionAdd'
+
 
 const client = new ApolloClient({
   uri: "http://localhost:3000/graphql"
@@ -19,7 +21,9 @@ const Content = () => (
       <Route exact path='/' component={Home}/>
       <Route exact path='/fundtypes' component={FundTypes}/>
       <Route exact path='/fundproducts' component={FundProducts}/>
+      <Route exact path='/transactions/add' component={TransactionsAdd} />
       <Route exact path='/transactions' component={Transactions} />
+      
     </Switch>
   </ApolloProvider>
 );

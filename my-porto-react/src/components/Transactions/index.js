@@ -3,22 +3,28 @@ import React, {Component} from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
-import Table, { TableHead, TableRow } from 'material-ui/Table';
+import Table, { TableHead, TableBody, TableRow } from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 
 import CustomTableCell from '../CustomTableCell';
 import TransactionList from './TransactonList';
+import TransactionRowEditor from './TransactionRowEditor';
 
 class Transactions extends Component {
   constructor(props) {
     super(props)
     this.state = {
       transactionIdInEdit: null,
-      addingMode: false,
+      addingMode: this.props.addingMode || false,
     }
   }
+
+  _addTransactionClicked = () => {
+    this.props.history.push('/transactions/add')
+  }
+
   render() {
     const { classes } = this.props;
     return (
@@ -31,7 +37,7 @@ class Transactions extends Component {
           </div>
           <div className={classes.titleButton}>
             <Button color="primary" className={classes.button} 
-              onClick={this._addProductClicked}
+              onClick={this._addTransactionClicked}
               disabled={this.state.addingMode}
               variant="raised"
               >
@@ -53,7 +59,11 @@ class Transactions extends Component {
                 <CustomTableCell numeric>Fee</CustomTableCell>
               </TableRow>
             </TableHead>
-            <TransactionList/>
+            <TableBody>
+              { this.state.addingMode && <TransactionRowEditor transaction={null} /> }
+              
+              <TransactionList {...this.props}/>
+            </TableBody>
           </Table>
         </Paper>
       </section>

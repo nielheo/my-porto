@@ -35,6 +35,17 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 3,
     overflowX: 'auto',
   },
+  titleRow: {
+    display: 'flex',
+  },
+  title: {
+    marginTop: '12px',
+    marginLeft: '12px',
+    flex: 1,
+  },
+  titleButton: {
+    justifyContent: 'flex-end',
+  },
   table: {
     minWidth: 700,
   },

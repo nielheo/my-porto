@@ -7,6 +7,7 @@ const queryEntryPoints = `
     fundProduct(id: Int, code: String): FundProduct,
     fundProducts: [FundProduct]
     transactions: [Transaction]
+    portfolios: [Portfolio]
   }
 `
 export default queryEntryPoints

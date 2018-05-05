@@ -1,6 +1,7 @@
 import FundTypeType from './fundtype/fundtype.type'
 import FundProductType from './fundproduct/fundproduct.type'
 import TransactionType from './transaction/transaction.type'
+import PortfolioType from './portfolio/portfolio.type'
 import DateType from './date/date.type'
 
 import RootQuery from './rootquery/rootquery.type'
@@ -35,6 +36,7 @@ const schema = makeExecutableSchema({
     FundTypeType,
     FundProductType,
     TransactionType,
+    PortfolioType,
     DateType
   ],
   // performs field lookups for a specific type

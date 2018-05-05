@@ -15,6 +15,16 @@ const RootMutation = `
       name: String!,
       fundTypeId: Int!
     ): FundProduct,
+    addTransaction (
+      reffNumber: String!,
+      transactionDate: Date!,
+      isSubscribe: Boolean!,
+      transactionValue: Float!,
+      transactionFee: Float!,
+      nav: Float!,
+      unit: Float!,
+      fundProductId: Int!
+    ): Transaction
   }
 `
 export default RootMutation

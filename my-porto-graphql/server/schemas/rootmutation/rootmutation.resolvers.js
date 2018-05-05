@@ -1,5 +1,6 @@
 const fundTypesController = require('../../controllers').fundTypes;
 const fundProductsController = require('../../controllers').fundProducts;
+const transactionController = require('../../controllers').transactions;
 
 const rootMutationResolvers = {
   // this corresponds to the `RootMutation.addItem` type
@@ -12,8 +13,12 @@ const rootMutationResolvers = {
   },
   async updateFundProduct(rootObj, { id, code, name, fundTypeId }) {
     return await fundProductsController.update({ id, code, name, fundTypeId })
+  },
+  async addTransaction(rootObj, { reffNumber, transactionDate, isSubscribe, 
+        transactionValue, transactionFee, nav, unit, fundProductId }) {
+    return await transactionController.create({ reffNumber, transactionDate, isSubscribe, 
+        transactionValue, transactionFee, nav, unit, fundProductId })
   }
-
 }
 
 export default rootMutationResolvers

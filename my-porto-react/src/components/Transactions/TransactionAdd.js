@@ -1,12 +1,8 @@
-import React, { Component } from 'react';
+import { graphql } from 'react-apollo';
+import addTransactionMutation from '../../mutations/addTransactionMutation';
+
 import TransactionEditor from './TransactionEditor';
 
-class TransactionAdd extends Component {
-  render() {
-    return (
-      <TransactionEditor addingMode={true} />
-    )
-  }
-}
+const TransactionAdd = graphql(addTransactionMutation)(TransactionEditor);
  
-export default TransactionAdd
+export default TransactionAdd;

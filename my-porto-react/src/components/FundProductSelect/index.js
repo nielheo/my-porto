@@ -5,7 +5,7 @@ import gql from "graphql-tag";
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Input, { InputLabel } from 'material-ui/Input';
-import { FormControl, FormHelperText } from 'material-ui/Form';
+import { FormControl } from 'material-ui/Form';
 
 import Select from 'material-ui/Select';
 import { MenuItem } from 'material-ui/Menu';
@@ -30,7 +30,7 @@ class FundProductSelect extends Component {
           if (loading) return null;
           if (error) return null;
 
-          return <FormControl fullWidth margin="normal" className={classes.formControl}>
+          return <FormControl fullWidth margin="normal" className={classes.formControl} error={this.props.error}>
                   <InputLabel htmlFor="fundProduct">Product</InputLabel>
                   <Select fullWidth value={this.props.value} onChange={this.props.onChange} className={classes.select} input={<Input id="fundProduct" />} >
                     { this.props.fundProductId === '' && <MenuItem value={''} className={classes.menu}></MenuItem> }

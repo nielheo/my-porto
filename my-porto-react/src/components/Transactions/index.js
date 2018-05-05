@@ -55,6 +55,7 @@ class Transactions extends Component {
                 <CustomTableCell>Type</CustomTableCell>
                 <CustomTableCell numeric>NAV</CustomTableCell>
                 <CustomTableCell numeric>Unit</CustomTableCell>
+                <CustomTableCell numeric>Value</CustomTableCell>
                 <CustomTableCell numeric>Cost</CustomTableCell>
                 <CustomTableCell numeric>Fee</CustomTableCell>
               </TableRow>

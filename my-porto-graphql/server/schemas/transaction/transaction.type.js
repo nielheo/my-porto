@@ -1,4 +1,4 @@
-import GraphQLDate from 'graphql-date'
+//import GraphQLDate from 'graphql-date'
 
 const trancationType = `
   type Transaction {

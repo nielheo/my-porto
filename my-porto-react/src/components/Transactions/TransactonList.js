@@ -11,6 +11,7 @@ class TransactionList extends Component {
   
   render() {
     const { loading, error, transactions } = this.props.data
+    
     if (loading) return <TableRow>
                     <CustomTableCell>Loading</CustomTableCell>
                 </TableRow>;
@@ -18,7 +19,10 @@ class TransactionList extends Component {
                     <CustomTableCell>Error loading data</CustomTableCell>
                 </TableRow>;
 
-    return (transactions.map((transaction) => (
+    return (transactions.map((transaction) => { 
+        
+        const value = transaction.nav * transaction.unit        
+        return (
         <TableRow  key={transaction.id}>
             <CustomTableCell>{moment(transaction.transactionDate).format('DD/MMM/YYYY')}</CustomTableCell>
             <CustomTableCell>{transaction.reffNumber}</CustomTableCell>
@@ -28,12 +32,14 @@ class TransactionList extends Component {
                     {'minimumFractionDigits':4,'maximumFractionDigits':4})}</CustomTableCell>
             <CustomTableCell numeric>{transaction.unit.toLocaleString(undefined,
                     {'minimumFractionDigits':4,'maximumFractionDigits':4})}</CustomTableCell>
+            <CustomTableCell numeric>{value.toLocaleString(undefined,
+                    {'minimumFractionDigits':4,'maximumFractionDigits':4})}</CustomTableCell>
             <CustomTableCell numeric>{transaction.transactionValue.toLocaleString(undefined,
                     {'minimumFractionDigits':2,'maximumFractionDigits':2})}</CustomTableCell>
             <CustomTableCell numeric>{transaction.transactionFee.toLocaleString(undefined,
                     {'minimumFractionDigits':2,'maximumFractionDigits':2})}</CustomTableCell>
         </TableRow> 
-    )))
+    )}))
   }
 }
 

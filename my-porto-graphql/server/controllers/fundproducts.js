@@ -7,6 +7,7 @@ module.exports = {
         code: req.code,
         name: req.name,
         fundTypeId: req.fundTypeId,
+        nav: req.nav
       })
       .then(fundProduct => fundProduct)
       .catch(error => error);
@@ -34,8 +35,6 @@ module.exports = {
     if (req.id) query.id = req.id
     if (req.code) query.code = req.code
 
-    //if (query === {}) return null
-
     return FundProduct
       .findOne({ where: query })
       .then(fundProduct => fundProduct)
@@ -44,7 +43,7 @@ module.exports = {
   update(req, res) {
     return this.retrieve({id: req.id})
       .then(fundProduct => fundProduct.update({
-          code: req.code, name: req.name, fundTypeId: req.fundTypeId
+          code: req.code, name: req.name, fundTypeId: req.fundTypeId, nav: req.nav
         }).then(fundProduct => { 
             return fundProduct; })
           .catch(error => error)

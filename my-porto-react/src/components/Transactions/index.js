@@ -49,15 +49,11 @@ class Transactions extends Component {
           <Table className={classes.table}>
             <TableHead>
               <TableRow>
-                <CustomTableCell>Date</CustomTableCell>
-                <CustomTableCell>Reff No</CustomTableCell>
-                <CustomTableCell>Product</CustomTableCell>
-                <CustomTableCell>Type</CustomTableCell>
+                <CustomTableCell>Reff No / Date</CustomTableCell>
+                <CustomTableCell>Type / Product</CustomTableCell>
                 <CustomTableCell numeric>NAV</CustomTableCell>
-                <CustomTableCell numeric>Unit</CustomTableCell>
-                <CustomTableCell numeric>Value</CustomTableCell>
-                <CustomTableCell numeric>Cost</CustomTableCell>
-                <CustomTableCell numeric>Fee</CustomTableCell>
+                <CustomTableCell numeric>Unit / Value</CustomTableCell>
+                <CustomTableCell numeric>Cost / Fee</CustomTableCell>
               </TableRow>
             </TableHead>
             <TableBody>

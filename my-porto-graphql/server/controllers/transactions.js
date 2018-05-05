@@ -18,7 +18,10 @@ module.exports = {
     },
     list(req, res) {
         return Transaction
-            .all()
+            .all({
+                order: [
+                  ['reffNumber']]
+              })
             .then(transactions => transactions)
             .catch(error => error)
         },

@@ -19,6 +19,7 @@ class FundProductList extends Component {
               id
               code
               name
+              nav
               fundTypeId
               fundType {
                 name

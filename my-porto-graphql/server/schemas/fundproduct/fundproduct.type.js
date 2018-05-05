@@ -4,6 +4,7 @@ const fundProductType = `
     code: String!,
     name: String!,
     fundTypeId: Int!,
+    nav: Float!,
     fundType: FundType
   }
 `

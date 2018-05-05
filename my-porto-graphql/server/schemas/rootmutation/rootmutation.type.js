@@ -7,12 +7,14 @@ const RootMutation = `
     addFundProduct (
       code: String!,
       name: String!,
-      fundTypeId: Int!
+      fundTypeId: Int!,
+      nav: Float!
     ): FundProduct,
     updateFundProduct (
       id: Int!,
       code: String!,
       name: String!,
+      nav: Float!,
       fundTypeId: Int!
     ): FundProduct,
     addTransaction (

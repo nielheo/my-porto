@@ -71,6 +71,7 @@ class FundProducts extends Component {
                 <CustomTableCell>Code</CustomTableCell>
                 <CustomTableCell>Name</CustomTableCell>
                 <CustomTableCell>Type</CustomTableCell>
+                <CustomTableCell numeric>NAV</CustomTableCell>
                 <CustomTableCell></CustomTableCell>
               </TableRow>
             </TableHead>

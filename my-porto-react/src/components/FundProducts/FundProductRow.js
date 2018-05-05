@@ -14,6 +14,8 @@ const FundProductRow = (props) => {
     <CustomTableCell>{fundProduct.code}</CustomTableCell>
     <CustomTableCell>{fundProduct.name}</CustomTableCell>
     <CustomTableCell>{fundProduct.fundType.name}</CustomTableCell>
+    <CustomTableCell numeric>{fundProduct.nav.toLocaleString(undefined,
+                    {'minimumFractionDigits':4,'maximumFractionDigits':4})}</CustomTableCell>
     <CustomTableCell>
       <Button 
         color="primary" 

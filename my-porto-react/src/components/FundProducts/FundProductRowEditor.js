@@ -17,6 +17,7 @@ class FundProductRowEditor extends Component {
       code: props.fundProduct ? props.fundProduct.code : '',
       name: props.fundProduct ? props.fundProduct.name : '',
       fundTypeId: props.fundProduct ? props.fundProduct.fundTypeId : '',
+      nav: props.fundProduct ? props.fundProduct.nav : '',
     }
   }
 
@@ -33,10 +34,10 @@ class FundProductRowEditor extends Component {
   }
 
   _onSaveClicked = () => {
-    const {code, name, fundTypeId} = this.state
+    const {code, name, fundTypeId, nav} = this.state
     const {fundProduct} = this.props
     this.props.mutate({
-      variables: {id: fundProduct ? fundProduct.id : null, code, name, fundTypeId},
+      variables: {id: fundProduct ? fundProduct.id : null, code, name, fundTypeId, nav},
       refetchQueries: [`fundProducts`]
     }).then(() => {
       this.props.onCancelEditClicked();
@@ -46,6 +47,12 @@ class FundProductRowEditor extends Component {
   _onFundTypeChanged = (e) => {
     this.setState({
       fundTypeId: e.target.value
+    })
+  }
+
+  _onNavChanged = (e) => {
+    this.setState({
+      nav: e.target.value
     })
   }
 
@@ -71,6 +78,14 @@ class FundProductRowEditor extends Component {
         <FundTypeSelect 
           fundTypeId={this.state.fundTypeId} 
           onChange={this._onFundTypeChanged}/>
+      </CustomTableCell>
+      <CustomTableCell>
+        <TextField 
+          fullWidth 
+          type="number"
+          value={this.state.nav}
+          onChange={this._onNavChanged}
+        />
       </CustomTableCell>
       <CustomTableCell>
         <Button 

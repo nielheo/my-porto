@@ -24,19 +24,18 @@ class TransactionList extends Component {
         const value = transaction.nav * transaction.unit        
         return (
         <TableRow  key={transaction.id}>
-            <CustomTableCell>{moment(transaction.transactionDate).format('DD/MMM/YYYY')}</CustomTableCell>
-            <CustomTableCell>{transaction.reffNumber}</CustomTableCell>
-            <CustomTableCell>{transaction.fundProduct.name} ({transaction.fundProduct.code})</CustomTableCell>
-            <CustomTableCell>{transaction.isSubscribe ? "Subscription" : "Redemption"}</CustomTableCell>
+            <CustomTableCell><b>{transaction.reffNumber}</b>
+                <br/>{moment(transaction.transactionDate).format('DD/MMM/YYYY')}</CustomTableCell>
+            <CustomTableCell><b>{transaction.isSubscribe ? "Subscription" : "Redemption"}</b>
+                <br/>{transaction.fundProduct.name} ({transaction.fundProduct.code})</CustomTableCell>
             <CustomTableCell numeric>{transaction.nav.toLocaleString(undefined,
                     {'minimumFractionDigits':4,'maximumFractionDigits':4})}</CustomTableCell>
             <CustomTableCell numeric>{transaction.unit.toLocaleString(undefined,
-                    {'minimumFractionDigits':4,'maximumFractionDigits':4})}</CustomTableCell>
-            <CustomTableCell numeric>{value.toLocaleString(undefined,
-                    {'minimumFractionDigits':4,'maximumFractionDigits':4})}</CustomTableCell>
+                    {'minimumFractionDigits':4,'maximumFractionDigits':4})}<br/>
+                    <b>{value.toLocaleString(undefined,
+                    {'minimumFractionDigits':4,'maximumFractionDigits':4})}</b></CustomTableCell>
             <CustomTableCell numeric>{transaction.transactionValue.toLocaleString(undefined,
-                    {'minimumFractionDigits':2,'maximumFractionDigits':2})}</CustomTableCell>
-            <CustomTableCell numeric>{transaction.transactionFee.toLocaleString(undefined,
+                    {'minimumFractionDigits':2,'maximumFractionDigits':2})}<br/>{transaction.transactionFee.toLocaleString(undefined,
                     {'minimumFractionDigits':2,'maximumFractionDigits':2})}</CustomTableCell>
         </TableRow> 
     )}))

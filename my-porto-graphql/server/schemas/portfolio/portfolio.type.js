@@ -2,6 +2,7 @@ const portfolioType = `
   type Portfolio {
     fundProductId: Int!,
     fundProduct: FundProduct
+    totalTransaction: Int!,
     totalUnit: Float!,
     averageInitialNav: Float!,
     totalInitialValue: Float!,

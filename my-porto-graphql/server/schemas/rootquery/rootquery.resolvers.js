@@ -37,6 +37,7 @@ const rootQueryResolvers = {
 
         let totalTransactionValue = transactions.filter(t => t.fundProductId == p.id).map(f => f.transactionValue)
           .reduce(function(acc, val) { return parseFloat(acc) + parseFloat(val); })
+        let totalTransaction = transactions.filter(t => t.fundProductId == p.id).length
 
         let totalValue = (p.nav * totalUnit).toFixed(4);
         let profit = totalValue - totalInitialValue;
@@ -44,11 +45,12 @@ const rootQueryResolvers = {
           
         return {
           fundProductId: p.id,
-          totalUnit: totalUnit,
-          averageInitialNav: (totalValue / totalUnit).toFixed(4),
-          totalInitialValue: totalInitialValue,
-          totalValue: totalValue,
-          totalTransactionValue: totalTransactionValue,
+          totalUnit,
+          totalTransaction,
+          averageInitialNav: (totalInitialValue / totalUnit).toFixed(4),
+          totalInitialValue,
+          totalValue,
+          totalTransactionValue,
           nav: p.nav,
           profit,
           profitPercent,

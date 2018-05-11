@@ -41,11 +41,11 @@ class PortfolioList extends Component {
             <CustomTableCell numeric>{portfolio.averageInitialNav.toLocaleString(undefined,
                     {'minimumFractionDigits':4,'maximumFractionDigits':4})}<br/> 
                     {portfolio.totalInitialValue.toLocaleString(undefined,
-                    {'minimumFractionDigits':4,'maximumFractionDigits':4})}</CustomTableCell>
+                    {'minimumFractionDigits':2,'maximumFractionDigits':2})}</CustomTableCell>
             <CustomTableCell numeric>{portfolio.nav.toLocaleString(undefined,
                     {'minimumFractionDigits':4,'maximumFractionDigits':4})}<br/>
                     {portfolio.totalValue.toLocaleString(undefined,
-                    {'minimumFractionDigits':4,'maximumFractionDigits':4})}</CustomTableCell>
+                    {'minimumFractionDigits':2,'maximumFractionDigits':2})}</CustomTableCell>
             <CustomTableCell numeric>{portfolio.profit.toLocaleString(undefined,
                     {'minimumFractionDigits':4,'maximumFractionDigits':4})}<br/>
                     <b>{portfolio.profitPercent.toLocaleString(undefined,
@@ -58,11 +58,11 @@ class PortfolioList extends Component {
       <CustomTableCell></CustomTableCell>
       <CustomTableCell></CustomTableCell>
       <CustomTableCell numeric>{totalInitialValue.toLocaleString(undefined,
-                    {'minimumFractionDigits':4,'maximumFractionDigits':4})}</CustomTableCell>
+                    {'minimumFractionDigits':2,'maximumFractionDigits':2})}</CustomTableCell>
       <CustomTableCell numeric>{totalValue.toLocaleString(undefined,
-                    {'minimumFractionDigits':4,'maximumFractionDigits':4})}</CustomTableCell>
+                    {'minimumFractionDigits':2,'maximumFractionDigits':2})}</CustomTableCell>
       <CustomTableCell numeric>{totalReturn.toLocaleString(undefined,
-                    {'minimumFractionDigits':4,'maximumFractionDigits':4})}<br/>
+                    {'minimumFractionDigits':2,'maximumFractionDigits':2})}<br/>
                     <b>{returnPercent.toLocaleString(undefined,
                     {'minimumFractionDigits':2,'maximumFractionDigits':2})}</b></CustomTableCell>
     </TableFooter>

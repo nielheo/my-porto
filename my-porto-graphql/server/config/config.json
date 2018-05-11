@@ -1,11 +1,17 @@
 {
   "development": {
-    "username": "PortO",
-    "password": "Port0",
-    "database": "my-porto",
-    "host": "127.0.0.1",
+    "username": "myporto",
+    "password": "MyPorto_123",
+    "database": "myporto",
+    "host": "my-porto.cix5akbmpk54.ap-southeast-1.rds.amazonaws.com",
     "port": 5432,
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "pool": {
+      "max": 5,
+      "min": 0,
+      "idle": 2000,
+      "acquire": 2000
+    }
   },
   "test": {
     "username": "PortO",

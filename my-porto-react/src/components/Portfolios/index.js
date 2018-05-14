@@ -3,9 +3,8 @@ import React, {Component} from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
-import Table, { TableHead, TableBody, TableRow } from 'material-ui/Table';
+import Table, { TableHead, TableRow } from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
-import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 
 import CustomTableCell from '../CustomTableCell';

@@ -12,7 +12,7 @@ import TransactionsAdd from './components/Transactions/TransactionAdd'
 import Portfolios from './components/Portfolios'
 
 const client = new ApolloClient({
-  uri: "http://localhost:3000/graphql"
+  uri: "http://52.221.195.25:3000/graphql"
 });
 
 const Content = () => (

@@ -12,6 +12,9 @@ import {
   View
 } from 'react-native';
 
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
+
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',
@@ -19,22 +22,40 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends Component {
   render() {
+    const query = gql`query {
+      fundProducts {
+        id
+        code
+        name
+      }
+    }`
+
+    const Product = ({loading, error, data}) =>{
+
+      if (loading) return <Text>Loading...</Text>;
+      if (error) return <Text>Error :(</Text>;
+
+      let fundProducts = data !== null ? data.fundProducts : null
+      //console.log(fundProducts)
+      //return <View><Text>{JSON.stringify(data.fundProducts, null, 2)}</Text></View>
+      return fundProducts ? fundProducts.map(product => 
+        <View style={{paddingLeft: 20, paddingTop: 20}} key={product.id}>
+          <Text>Id: {product.id}</Text>
+          <Text>Code: {product.code}</Text>
+          <Text>Name: {product.name}</Text>
+        </View>) : <Text>No data</Text>
+    } 
+    const ViewWithData = graphql(query)(Product)
+
     return (
+    
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
+        <Text style={{textAlign: 'center'}}>Product List</Text>
+        <ViewWithData />
       </View>
-    );
+    )
   }
 }
 

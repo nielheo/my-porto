@@ -1,5 +1,26 @@
 import {Navigation, ScreenVisibilityListener} from 'react-native-navigation';
 
+import React from 'react';
+
+import { ApolloProvider } from 'react-apollo';
+import ApolloClient from 'apollo-boost';
+
+const client = new ApolloClient({
+  uri: "http://52.221.195.25:3000/graphql"
+});
+
+const withProvider = (Component, client) => {
+  return class extends React.Component {
+    render() {
+      return (
+        <ApolloProvider client={client}>
+          <Component {...this.props} />
+        </ApolloProvider>);
+    }
+  };
+};
+
+import FundProducts from './FundProducts';
 import Types from './NavigationTypes';
 import Actions from './Actions';
 import Transitions from './Transitions';
@@ -27,6 +48,7 @@ import Masonry from './transitions/sharedElementTransitions/Masonry/Masonry';
 import MasonryItem from './transitions/sharedElementTransitions/Masonry/Item';
 
 export function registerScreens() {
+  Navigation.registerComponent('my-porto.FundProducts', () => withProvider(FundProducts, client));
   Navigation.registerComponent('example.Types', () => Types);
   Navigation.registerComponent('example.Actions', () => Actions);
   Navigation.registerComponent('example.Transitions', () => Transitions);

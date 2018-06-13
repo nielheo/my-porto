@@ -1,26 +1,25 @@
 import {Platform} from 'react-native';
 import {Navigation} from 'react-native-navigation';
-import {registerScreens, registerScreenVisibilityListener} from './src/screens';
-
+import {registerScreens, registerScreenVisibilityListener} from './screens';
 
 // screen related book keeping
 registerScreens();
 registerScreenVisibilityListener();
 
-const tabs = [{
-  label: 'Fund Products',
-  screen: 'my-porto.FundProducts',
-  icon: require('./img/swap.png'),
-  title: 'Fund Products',
-},{
+const tabs = [/*{
+  label: 'Fund Types',
+  screen: 'my-porto.FundTypes',
+  icon: require('../img/swap.png'),
+  title: 'Fund Types',
+},*/{
   label: 'Actions',
   screen: 'example.Actions',
-  icon: require('./img/swap.png'),
+  icon: require('../img/swap.png'),
   title: 'Navigation Actions',
 },{
   label: 'Navigation',
   screen: 'example.Types',
-  icon: require('./img/list.png'),
+  icon: require('../img/list.png'),
   title: 'Navigation Types',
 }, ];
 
@@ -28,7 +27,7 @@ if (Platform.OS === 'android') {
   tabs.push({
     label: 'Transitions',
     screen: 'example.Transitions',
-    icon: require('./img/transform.png'),
+    icon: require('../img/transform.png'),
     title: 'Navigation Transitions',
   });
 }

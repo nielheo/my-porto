@@ -5,6 +5,8 @@ import React from 'react';
 import { ApolloProvider } from 'react-apollo';
 import ApolloClient from 'apollo-boost';
 
+import { FormattedProvider } from 'react-native-globalize';
+
 const client = new ApolloClient({
   uri: "http://52.221.195.25:3000/graphql"
 });
@@ -14,7 +16,9 @@ const withProvider = (Component, client) => {
     render() {
       return (
         <ApolloProvider client={client}>
-          <Component {...this.props} />
+          <FormattedProvider locale="en" currency="IDR" >
+            <Component {...this.props} />
+          </FormattedProvider>
         </ApolloProvider>);
     }
   };

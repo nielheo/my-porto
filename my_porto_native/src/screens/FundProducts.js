@@ -7,6 +7,8 @@ import {
   ScrollView
 } from 'react-native';
 
+import { FormattedNumber } from 'react-native-globalize';
+
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
@@ -46,8 +48,11 @@ export default class FundProducts extends Component {
             <Text style={styles.name}>{product.name}</Text>
           </View>
           <View style={styles.rowRightCol}>
-            <Text style={styles.nav}>{product.nav.toLocaleString(undefined,
-              {'minimumFractionDigits':4,'maximumFractionDigits':4})}</Text>
+            <FormattedNumber
+                value={product.nav}
+                minimumFractionDigits={4}
+                maximumFractionDigits={4}
+                style={styles.nav} />
           </View>
         </View>) : <Text>No data</Text>
     } 
@@ -96,5 +101,6 @@ const styles = StyleSheet.create({
   nav: {
     alignSelf: 'flex-end',
     fontSize: 20,
+    color: 'green'
   }
 });

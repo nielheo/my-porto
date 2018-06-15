@@ -12,14 +12,18 @@ import { FormattedNumber } from 'react-native-globalize';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import PTRView from 'react-native-pull-to-refresh';
+
+let Product
 
 export default class FundProducts extends Component {
+
+  _refresh = () => {
+    console.log('--- refreshing ---');
+    console.log(Product.data1);  
+    Product.data.refetch();
+  }
+
   render() {
     const query = gql`query {
       fundProducts {
@@ -33,36 +37,44 @@ export default class FundProducts extends Component {
       }
     }`
 
-    const Product = ({loading, error, data}) =>{
+    Product = ({loading, error, data, refetch}) =>{
+
+      let data1 = data
 
       if (loading) return <Text>Loading...</Text>;
       if (error) return <Text>Error :(</Text>;
 
       let fundProducts = data !== null ? data.fundProducts : null
+
+      console.log(refetch);
       //console.log(fundProducts)
       //return <View><Text>{JSON.stringify(data.fundProducts, null, 2)}</Text></View>
-      return fundProducts ? fundProducts.map(product => 
-        <View style={styles.row} key={product.id}>
-          <View style={styles.rowLeftCol}>
-            <Text style={styles.code}>{product.code}</Text>
-            <Text style={styles.name}>{product.name}</Text>
-          </View>
-          <View style={styles.rowRightCol}>
-            <FormattedNumber
-                value={product.nav}
-                minimumFractionDigits={4}
-                maximumFractionDigits={4}
-                style={styles.nav} />
-          </View>
-        </View>) : <Text>No data</Text>
+      return (<PTRView onRefresh={refetch}>
+        <ScrollView style={styles.container}> 
+          {fundProducts ? fundProducts.map(product => 
+            <View style={styles.row} key={product.id}>
+              <View style={styles.rowLeftCol}>
+                <Text style={styles.code}>{product.code}</Text>
+                <Text style={styles.name}>{product.name}</Text>
+              </View>
+              <View style={styles.rowRightCol}>
+                <FormattedNumber
+                    value={product.nav}
+                    minimumFractionDigits={4}
+                    maximumFractionDigits={4}
+                    style={styles.nav} />
+              </View>
+            </View>) 
+            : <Text>No data</Text>}
+          </ScrollView>
+        </PTRView>)
     } 
     const ViewWithData = graphql(query)(Product)
 
     return (
-    
-      <ScrollView style={styles.container}>
-        <ViewWithData />
-      </ScrollView>
+      
+          <ViewWithData />
+        
     )
   }
 }

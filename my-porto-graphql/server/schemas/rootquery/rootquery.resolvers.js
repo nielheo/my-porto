@@ -56,6 +56,45 @@ const rootQueryResolvers = {
           profitPercent,
         }
       })
+    },
+    async portfolio() {
+      let transactions = await transactionsController.list();
+
+      let totalInitialValue = transactions.map(f => (f.unit * f.nav).toFixed(4))
+          .reduce(function(acc, val) { return parseFloat(acc) + parseFloat(val); });
+
+      let totalUnit = transactions.map(f => f.unit)
+          .reduce(function(acc, val) { return parseFloat(acc) + parseFloat(val); });
+
+      let totalTransactionValue = transactions.map(f => f.transactionValue)
+          .reduce(function(acc, val) { return parseFloat(acc) + parseFloat(val); });
+
+      let totalTransaction = transactions.length;
+
+      let list = fundProductsController.list({}).map(p => {
+        
+        let totalValue = (p.nav * totalUnit).toFixed(4);
+        let profit = totalValue - totalInitialValue;
+        let profitPercent = ((profit / totalInitialValue) * 100).toFixed(2);
+          
+        return {
+          totalValue,
+          nav: p.nav,
+          profit,
+          profitPercent,
+          unit: p.unit
+        }
+      })
+
+      return {
+        totalInitialValue,
+        totalUnit,
+        totalTransactionValue,
+        totalTransaction,
+        averageInitialNav: (totalInitialValue / totalUnit).toFixed(4),
+        totalValue: list.map(f => (f.unit * f.nav).toFixed(4))
+            .reduce(function(acc, val) { return parseFloat(acc) + parseFloat(val); });
+      }
     }
   }
   

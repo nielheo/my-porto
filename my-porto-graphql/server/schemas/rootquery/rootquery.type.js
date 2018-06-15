@@ -8,6 +8,7 @@ const queryEntryPoints = `
     fundProducts: [FundProduct]
     transactions: [Transaction]
     portfolios: [Portfolio]
+    portfolio: Portfolio
   }
 `
 export default queryEntryPoints

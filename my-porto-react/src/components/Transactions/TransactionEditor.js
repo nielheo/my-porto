@@ -2,18 +2,18 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { withStyles } from 'material-ui/styles';
-import Paper from 'material-ui/Paper';
-import Typography from 'material-ui/Typography';
-import TextField from 'material-ui/TextField';
+import { withStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
 import FundProductSelect from '../FundProductSelect';
-import Grid from 'material-ui/Grid';
-import { FormControl } from 'material-ui/Form';
-import Input, { InputLabel } from 'material-ui/Input';
-import Select from 'material-ui/Select';
-import { MenuItem } from 'material-ui/Menu';
+import Grid from '@material-ui/core/Grid';
+import { FormControl } from '@material-ui/core';
+import { Input, InputLabel } from '@material-ui/core';
+import Select from '@material-ui/core/Select';
+import { MenuItem } from '@material-ui/core';
 import DatePicker from 'material-ui-pickers/DatePicker';
-import Button from 'material-ui/Button';
+import Button from '@material-ui/core/Button';
 
 class TransactionEditor extends Component {
   constructor(props) {

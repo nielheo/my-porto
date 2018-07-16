@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import Table, { TableBody, TableHead, TableRow } from 'material-ui/Table';
-import Paper from 'material-ui/Paper';
-import Button from 'material-ui/Button';
-import Typography from 'material-ui/Typography';
+import { withStyles } from '@material-ui/core/styles';
+import { Table, TableBody, TableHead, TableRow } from '@material-ui/core';
+import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 
 import { withRouter } from 'react-router-dom';
 

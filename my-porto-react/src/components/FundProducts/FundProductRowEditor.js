@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import { TableRow } from 'material-ui/Table';
-import Button from 'material-ui/Button';
-import TextField from 'material-ui/TextField';
+import { withStyles } from '@material-ui/core/styles';
+import { TableRow } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 import CustomTableCell from '../CustomTableCell';
 import FundTypeSelect from '../FundTypeSelect';
 
@@ -117,6 +117,17 @@ const styles = theme => ({
   },
   table: {
     minWidth: 700,
+  },
+  titleRow: {
+    display: 'flex',
+  },
+  title: {
+    marginTop: '12px',
+    marginLeft: '12px',
+    flex: 1,
+  },
+  titleButton: {
+    justifyContent: 'flex-end',
   },
   button: {
     margin: theme.spacing.unit,

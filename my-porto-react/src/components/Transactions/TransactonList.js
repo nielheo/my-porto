@@ -4,7 +4,7 @@ import { graphql } from "react-apollo";
 import gql from "graphql-tag";
 import moment from 'moment';
 
-import { TableRow } from 'material-ui/Table';
+import { TableRow } from '@material-ui/core';
 import CustomTableCell from '../CustomTableCell';
 
 class TransactionList extends Component {

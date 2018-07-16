@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import PropTypes from 'prop-types';
 
-import { withStyles } from 'material-ui/styles';
-import AppBar from 'material-ui/AppBar';
-import Toolbar from 'material-ui/Toolbar';
-import Typography from 'material-ui/Typography';
-import IconButton from 'material-ui/IconButton';
-import Menu, { MenuItem } from 'material-ui/Menu';
+import { withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
+import { Menu, MenuItem } from '@material-ui/core';
+
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 const styles = {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
 
-import { TableRow, TableFooter, TableBody } from 'material-ui/Table';
+import { TableRow, TableFooter, TableBody } from '@material-ui/core';
 import CustomTableCell from '../CustomTableCell';
 
 class PortfolioList extends Component {

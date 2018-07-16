@@ -1,9 +1,9 @@
 import React from "react";
 
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import { TableRow } from 'material-ui/Table';
-import Button from 'material-ui/Button';
+import { withStyles } from '@material-ui/core/styles';
+import { TableRow } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 
 import CustomTableCell from '../CustomTableCell'
 

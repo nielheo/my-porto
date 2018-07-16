@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import { TableRow } from 'material-ui/Table';
-import Button from 'material-ui/Button';
-import TextField from 'material-ui/TextField';
+import { withStyles } from '@material-ui/core/styles';
+import { TableRow } from '@material-ui/core/Table';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 import CustomTableCell from '../CustomTableCell';
 
 import { withRouter } from 'react-router-dom';
